@@ -1,6 +1,7 @@
 package com.mailchimp.automation.util;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,16 +22,31 @@ public class CSVFileHandler {
 	
 	//CSV file header
 	private static final String FILE_HEADER = "Name,Designation,Description";
+	
+	private static void makeDataDir() {
+		File f = new File(AppConstant.CSV_FILE_PATH);
+		try {
+			if (f.exists() == false) {
+				f.mkdir();
+				System.out.println("Directory Created");
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void writeCsvFile(List<LeadersInfo> leadersInfoList) {
 
+		makeDataDir();
+		
 	    FileWriter fileWriter = null;
 	    try {
-	        fileWriter = new FileWriter(AppConstant.CSV_FILE_PATH);
+	        fileWriter = new FileWriter(AppConstant.CSV_FILE_PATH + "LeadershipInfo.csv");
 	        //Write the CSV file header
 	        fileWriter.append(FILE_HEADER.toString());
 	        //Add a new line separator after the header
 	        fileWriter.append(NEW_LINE_SEPARATOR);
+
 
 	        //Write a new student object list to the CSV file
 	        for (LeadersInfo info : leadersInfoList) {
@@ -41,7 +57,9 @@ public class CSVFileHandler {
 	            fileWriter.append(info.getDesignation());
 	            fileWriter.append(COMMA_DELIMITER);
 
-	            fileWriter.append(info.getDescription());
+	            String description = '"' + info.getDescription() + '"';
+	            
+	            fileWriter.append(description);
 	            fileWriter.append(COMMA_DELIMITER);
 
 	            fileWriter.append(NEW_LINE_SEPARATOR);

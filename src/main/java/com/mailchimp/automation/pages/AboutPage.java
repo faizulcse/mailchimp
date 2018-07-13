@@ -59,6 +59,9 @@ public class AboutPage extends TestBase{
 		closeLeadershipDetailsWindow();
 		TestUtil.waitFor(2);
 		
+		//System.out.println(details);
+		details = details.replaceAll("'","").replace("\"", "").replaceAll("’","");
+		//System.out.println(details);
 		LeadersInfo leadersInfo = new LeadersInfo(leaderName,designation,details);
 		
 		return leadersInfo;

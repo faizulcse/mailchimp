@@ -1,7 +1,6 @@
 package com.mailchimp.automation;
 
 import com.mailchimp.automation.suite.TestStarter;
-import com.mailchimp.automation.util.PropertySettings;
 
 public class MailChimpApp 
 {

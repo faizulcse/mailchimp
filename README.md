@@ -2,31 +2,32 @@ README 1.0
 
 Technology:
 1. Java - version 1.8
-2. Eclipes - version Mars.2 Release 4.5.2
-3. Selenium Web Driver - Java Library 3.13.0
+2. Eclipes - version Photon Release (4.8.0)
+
 
 Run Automation:
-- MAC
+- Windows or MAC
 - Default browser: Google Chrome
 
 How to run:
 ----------
 1. Install latest maven then set environment path.
-2. Go to project directory.
+2. Go to project directory by $cd mailchimp.
 3. Follow the following steps.
-
 
 To build this project
 ---------------------
-mvn build
+mvn clean install
 
 To run this project
 -------------------
-mvn exec:java -Dexec.mainClass=com.mailchimp.automation.MailChimpApp -Dexec.cleanupDaemonThreads=false
+mvn compile exec:java -Dexec.mainClass=com.mailchimp.automation.MailChimpApp -Dexec.cleanupDaemonThreads=false
 
 
-CSV File:
-1. Go to Workspace > mailchimp > data
+CSV File
+---------
+Go to Workspace > mailchimp > data
 
-Test script:
-1. Go to Project > package[com.mailchimp.automation.testcases] > AboutPageTest.java
+Test script
+-----------
+Go to Project > package[com.mailchimp.automation.testcases] > AboutPageTest.java
