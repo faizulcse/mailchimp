@@ -1,0 +1,11 @@
+To build this project
+---------------------
+mvn build
+
+To run this project
+-------------------
+mvn exec:java -Dexec.mainClass=com.mailchimp.automation.MailChimpApp -Dexec.cleanupDaemonThreads=false
+
+To create jar
+-------------
+mvn package
