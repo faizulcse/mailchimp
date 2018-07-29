@@ -1,8 +1,10 @@
 package com.mailchimp.automation.testcases;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.annotations.DataProvider;
 
 import com.mailchimp.automation.util.*;
 import com.mailchimp.automation.base.TestBase;
@@ -14,8 +16,6 @@ public class AboutPageTest extends TestBase{
 	
 	HomePage homePage;
 	AboutPage aboutPage;
-	
-	String sheetName = "abouts";
 	
 	public AboutPageTest(){
 		super();	
@@ -39,7 +39,25 @@ public class AboutPageTest extends TestBase{
 		aboutPage.scrollToLeadershipSection();
 		TestUtil.waitFor(5);
 		aboutPage.saveLeadershipInfoToCSV();
+		//Assert.assertTrue(true);
 	}
+	
+//	@Test(dataProvider="LeadersDataProvider")
+//	public void testLeadership(String leaderName,String designation) {
+//
+//		Assert.assertTrue(aboutPage.checkLeaderName(leaderName) && aboutPage.checkLeaderDesignation(leaderName));
+//	}
+//	
+//	@DataProvider(name="LeadersDataProvider")
+//    public Object[][] getDataFromDataprovider(){
+//    return new Object[][] 
+//    	{
+//            { "Ben Chestnut", "Co-founder and Chief Executive Officer" },
+//            { "Dan Kurzius","Co-founder and Chief Customer Officer" },
+//            { "Farrah Kennedy","Chief Operating Officer" }
+//        };
+//
+//    }
 		
 	
 	@AfterMethod

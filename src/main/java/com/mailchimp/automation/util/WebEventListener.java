@@ -1,6 +1,7 @@
 package com.mailchimp.automation.util;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
@@ -113,5 +114,35 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
 	public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
 		// TODO Auto-generated method stub
 
+	}
+
+	public void beforeSwitchToWindow(String windowName, WebDriver driver) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void afterSwitchToWindow(String windowName, WebDriver driver) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public <X> void beforeGetScreenshotAs(OutputType<X> target) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public <X> void afterGetScreenshotAs(OutputType<X> target, X screenshot) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void beforeGetText(WebElement element, WebDriver driver) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void afterGetText(WebElement element, WebDriver driver, String text) {
+		// TODO Auto-generated method stub
+		
 	}
 }

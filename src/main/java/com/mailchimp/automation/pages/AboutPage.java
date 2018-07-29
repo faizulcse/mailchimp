@@ -16,7 +16,7 @@ import com.mailchimp.automation.model.LeadersInfo;
 
 public class AboutPage extends TestBase{
 	
-	List<WebElement> leadershipList;
+	List<WebElement> mLeadershipList;
 	
 	public void scrollToLeadershipSection(){
 		Actions actions = new Actions(driver);
@@ -33,17 +33,18 @@ public class AboutPage extends TestBase{
 	}
 	
 	public List<WebElement> getLeadershipList(){
+		List<WebElement> leadershipList;
 		leadershipList = driver.findElements(By.xpath("//div[contains(@class, 'col span1of4 large-span1of3 small-span1of2 ptb3 mb3 align-left')]"));
 		
 		return leadershipList;
 	}
 	
 	public int getLeadershipElementCount(){
-		return leadershipList.size();
+		return mLeadershipList.size();
 	}
 
 	public void clickLeadershipLinkElement(int index){
-		WebElement element = leadershipList.get(index);
+		WebElement element = mLeadershipList.get(index);
 		element.click();
 	}
 	
@@ -60,7 +61,8 @@ public class AboutPage extends TestBase{
 		TestUtil.waitFor(2);
 		
 		//System.out.println(details);
-		details = details.replaceAll("'","").replace("\"", "").replaceAll("’","");
+		//details = details.replaceAll("'","").replace("\"", "").replaceAll("’","");
+		details = details.replaceAll("'","").replace("\"", "");
 		//System.out.println(details);
 		LeadersInfo leadersInfo = new LeadersInfo(leaderName,designation,details);
 		
@@ -68,7 +70,7 @@ public class AboutPage extends TestBase{
 	}
 	
 	public void saveLeadershipInfoToCSV() {
-		getLeadershipList();
+		mLeadershipList = getLeadershipList();
 		int count = getLeadershipElementCount();
 		
 		List<LeadersInfo> leadersList = new ArrayList();
@@ -80,5 +82,19 @@ public class AboutPage extends TestBase{
 		}
 		
 		CSVFileHandler.writeCsvFile(leadersList);
+	}
+	
+	public boolean checkLeaderName(String toCheckName) {
+		String leaderName = driver.findElement(By.xpath("//*[@id='bio_view']/div/div[2]/div[2]/h3")).getText();
+		if(leaderName == toCheckName) return true;
+		
+		return false;
+	}
+	
+	public boolean checkLeaderDesignation(String toChecDesignation) {
+		String designation = driver.findElement(By.xpath("//*[@id='bio_view']/div/div[2]/div[2]/span")).getText();
+		if(designation == toChecDesignation) return true;
+		
+		return false;
 	}
 }
