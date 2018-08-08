@@ -6,16 +6,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.mailchimp.automation.util.*;
-import com.mailchimp.automation.base.TestBase;
 import com.mailchimp.automation.pages.*;
 
-public class HomePageTest extends TestBase{
+public class HomePageTest extends PageBase{
 	TestUtil testUtil;
 	HomePage homePage;
-	
-	public HomePageTest() {
-		super();
-	}
 	
 	//test cases should be separated -- independent with each other
 	//before each test case -- launch the browser and login
@@ -24,21 +19,21 @@ public class HomePageTest extends TestBase{
 	
 	@BeforeMethod
 	public void setUp() {
-		initialization();
+
 		testUtil = new TestUtil();
 		homePage = new HomePage();
 	}
-	
-	
-	@Test(priority=1)
+		
+	//@Test(priority=0)
+	@Test
 	public void verifyHomePageTitleTest(){
 		String homePageTitle = homePage.verifyHomePageTitle();
-		Assert.assertEquals(homePageTitle, "Marketing Platform for Small Businesses - Sell More Stuff | MailChimp","Home page title not matched");
+		System.out.println(homePageTitle);
+		Assert.assertEquals(homePageTitle, "Marketing Platform for Small Businesses - Sell More Stuff | MailChimp");
 	}
-	
-	
+		
 	@AfterMethod
 	public void tearDown(){
-		driver.quit();
+
 	}
 }

@@ -10,20 +10,25 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.mailchimp.automation.util.CSVFileHandler;
 import com.mailchimp.automation.util.TestUtil;
-import com.mailchimp.automation.base.TestBase;
 import com.mailchimp.automation.model.LeadersInfo;
 
 
-public class AboutPage extends TestBase{
+public class AboutPage extends PageBase{
+	
 	
 	List<WebElement> mLeadershipList;
 	
+	public AboutPage(){
+		super();
+	}
+	
 	public void scrollToLeadershipSection(){
+		waitFor(5);
 		Actions actions = new Actions(driver);
 		WebElement leadershipLabel = driver.findElement(By.xpath("//h2[contains(text(), 'Leadership Team')]"));
         actions.moveToElement(leadershipLabel);
-        actions.perform();
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        //actions.perform();
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
 	}
 	
 	public void closeLeadershipDetailsWindow(){
@@ -50,15 +55,15 @@ public class AboutPage extends TestBase{
 	
 	public LeadersInfo getLeadershipInfo(int index){
 		clickLeadershipLinkElement(index);
-		TestUtil.waitFor(2);
+		waitFor(2);
 		String leaderName = driver.findElement(By.xpath("//*[@id='bio_view']/div/div[2]/div[2]/h3")).getText();
-		TestUtil.waitFor(1);
+		waitFor(1);
 		String designation = driver.findElement(By.xpath("//*[@id='bio_view']/div/div[2]/div[2]/span")).getText();
-		TestUtil.waitFor(1);
+		waitFor(1);
 		String details = driver.findElement(By.className("mt6")).getText();
-		TestUtil.waitFor(2);
+		waitFor(2);
 		closeLeadershipDetailsWindow();
-		TestUtil.waitFor(2);
+		waitFor(2);
 		
 		//System.out.println(details);
 		//details = details.replaceAll("'","").replace("\"", "").replaceAll("’","");
@@ -70,6 +75,7 @@ public class AboutPage extends TestBase{
 	}
 	
 	public void saveLeadershipInfoToCSV() {
+		waitFor(5);
 		mLeadershipList = getLeadershipList();
 		int count = getLeadershipElementCount();
 		

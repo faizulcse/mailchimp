@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.mailchimp.automation.testcases.HomePageTest">
+        <methods>
+          <include name="verifyHomePageTitleTest"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.mailchimp.automation.testcases.HomePageTest -->
+      <class name="com.mailchimp.automation.testcases.LogoutPageTest">
+        <methods>
+          <include name="verifyLogOutSuccessfully"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.mailchimp.automation.testcases.LogoutPageTest -->
+      <class name="com.mailchimp.automation.testcases.LoginPageTest">
+        <methods>
+          <include name="verifyLoginSuccessfully"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.mailchimp.automation.testcases.LoginPageTest -->
+      <class name="com.mailchimp.automation.testcases.CreateListPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="verifyCreateNewList"/>
+        </methods>
+      </class> <!-- com.mailchimp.automation.testcases.CreateListPageTest -->
+      <class name="com.mailchimp.automation.testcases.DashboardPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="verifyDashBoardSuccessfully"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.mailchimp.automation.testcases.DashboardPageTest -->
+      <class name="com.mailchimp.automation.testcases.AboutPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="saveLeadershipList"/>
+        </methods>
+      </class> <!-- com.mailchimp.automation.testcases.AboutPageTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

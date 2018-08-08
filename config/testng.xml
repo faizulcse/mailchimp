@@ -1,9 +1,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="MailChimp_Demo_QA_Automation_Test_Report" verbose="1" preserve-order="true">
-    <test name="Test Automation MailChimp">
-        <classes>
-        	 <class name="com.mailchimp.automation.testcases.AboutPageTest"/>
-        </classes>
-    </test>
+<suite name="MailChimp_Demo_QA_Automation_Test_Report" verbose="1"
+	preserve-order="true">
+	<listeners>
+		<listener
+			class-name="com.mailchimp.automation.reports.CustomReporter" />
+	</listeners>
+	
+	<test name="Test Automation MailChimp">
+		<classes>
+			<class name="com.mailchimp.automation.testcases.HomePageTest" />
+			<class name="com.mailchimp.automation.testcases.LoginPageTest" />
+			<class name="com.mailchimp.automation.testcases.DashboardPageTest" />
+			<class name="com.mailchimp.automation.testcases.CreateListPageTest" />
+			<class name="com.mailchimp.automation.testcases.LogoutPageTest" />
+		</classes>
+	</test>
 </suite>

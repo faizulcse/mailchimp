@@ -18,6 +18,8 @@ public class CreateLogger
 	 */
 	public static void enterLogData(String destination, String infoToWrite)
 	{
+		makeLogDir();
+		
 		File file = new File(destination);
 
 		try {
@@ -30,6 +32,19 @@ public class CreateLogger
 		} catch ( IOException ioe ) {
 			ioe.printStackTrace();
 		}
+	}
+	
+	private static void makeLogDir() {
+		File f = new File(AppConstant.TEST_LOG_PATH);
+		try {
+			if (f.exists() == false) {
+				f.mkdir();
+				System.out.println("Log Directory Created");
+			} 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/*

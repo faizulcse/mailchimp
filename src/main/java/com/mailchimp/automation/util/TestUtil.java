@@ -9,9 +9,10 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
-import com.mailchimp.automation.base.TestBase;
+import com.mailchimp.automation.pages.PageBase;
 
-public class TestUtil extends TestBase{
+
+public class TestUtil extends PageBase{
 	
 	public static String TESTDATA_SHEET_PATH = "/testdata/TestData.xlsx";
 	
@@ -56,7 +57,7 @@ public class TestUtil extends TestBase{
 	/**
 	 * waits up to few seconds to perform action.
 	 */
-	public static void waitFor(double second) {
+	public  void waitFor(double second) {
 		try {
 			Thread.sleep((int) (1000 * second));
 		} catch (Exception e) {

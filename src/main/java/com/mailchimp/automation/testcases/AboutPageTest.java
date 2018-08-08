@@ -1,45 +1,40 @@
 package com.mailchimp.automation.testcases;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import org.testng.annotations.DataProvider;
 
-import com.mailchimp.automation.util.*;
-import com.mailchimp.automation.base.TestBase;
-import com.mailchimp.automation.pages.*;
+import com.mailchimp.automation.pages.AboutPage;
+import com.mailchimp.automation.pages.HomePage;
+import com.mailchimp.automation.pages.PageBase;
+import com.mailchimp.automation.util.TestUtil;
 
-public class AboutPageTest extends TestBase{
+
+public class AboutPageTest extends PageBase{
+
 
 	TestUtil testUtil;
 	
 	HomePage homePage;
 	AboutPage aboutPage;
 	
-	public AboutPageTest(){
-		super();	
-	}
-	
-	@BeforeMethod
+	@BeforeClass
 	public void setUp() {
-		
-		initialization();
-		
 		homePage = new HomePage();
 		homePage.scrollToAboutLink();
-		TestUtil.waitFor(5);
+		
 		aboutPage = homePage.clickOnAboutLink();
+		
 	}
 	
 	
-	@Test(priority=1)
+	//@Test(priority=1)
+	@Test
 	public void saveLeadershipList(){
-		TestUtil.waitFor(5);
 		aboutPage.scrollToLeadershipSection();
-		TestUtil.waitFor(5);
 		aboutPage.saveLeadershipInfoToCSV();
-		//Assert.assertTrue(true);
+		Assert.assertTrue(true);
 	}
 	
 //	@Test(dataProvider="LeadersDataProvider")
@@ -60,8 +55,8 @@ public class AboutPageTest extends TestBase{
 //    }
 		
 	
-	@AfterMethod
+	@AfterClass
 	public void tearDown(){
-		driver.quit();
+
 	}
 }
